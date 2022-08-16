@@ -8,7 +8,6 @@ import bs4 as bs
 import urllib.request
 import pickle
 import requests
-
 # load the nlp model and tfidf vectorizer from disk
 filename = 'nlp_model.pkl'
 clf = pickle.load(open(filename, 'rb'))
