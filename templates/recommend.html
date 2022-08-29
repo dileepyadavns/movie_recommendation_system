@@ -23,11 +23,7 @@
 <body id="content"> 
 	
       {% if movie_cards|length > 1 %}
-
-
-      
-
-    <div class="movie-content">
+      <div class="movie-content">
       {% for poster, title in movie_cards.items() if not movie_cards.hidden %}
         <div class="card" style="width: 15rem;" title="{{title}}" onclick="recommendcard(this)">
           <div class="imghvr">
