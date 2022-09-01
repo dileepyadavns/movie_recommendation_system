@@ -18,33 +18,33 @@
 
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
 
-  
 </head>
 
 <body id="content"> 
 	
+      {% if movie_cards|length > 1 %}
       <div class="movie-content">
-      {% for i in ppath %}
-      <!-- <h1>{arrp}</h1> -->
+      {% for poster, title in movie_cards.items() if not movie_cards.hidden %}
         <div class="card" style="width: 15rem;" title="{{title}}" onclick="recommendcard(this)">
-          <div class="imghvr" id="imghvr1">
-            <img class="card-img-top" height="360" width="240" alt="{{title}} - poster" src={{i[1]}}>
+          <div class="imghvr">
+            <img class="card-img-top" height="360" width="240" alt="{{title}} - poster" src={{poster}}>
             
            </div>
           <div class="card-body">
-            <h5 class="card-title">{{i[0]}}</h5>
+            <h5 class="card-title">{{title|capitalize}}</h5>
           </div>
         </div>
     {% endfor %}
     </div>
 
-
+    {% endif %}
 
     
     </div>
   </div>
- 
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
