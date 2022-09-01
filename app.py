@@ -17,6 +17,7 @@ vectorizer = pickle.load(open('tranform.pkl','rb'))
 
 def create_similarity():
     data = pd.read_csv('main_data.csv')
+    data=data.iloc[:15000,:]
     # creating a count matrix
     cv = CountVectorizer()
     count_matrix = cv.fit_transform(data['comb'])
@@ -63,7 +64,8 @@ def home():
     suggestions = get_suggestions()
     return render_template('home.html',suggestions=suggestions)
 
-@app.route("/similarity",methods=["POST"])
+
+@app.route("/similarity",methods=["GET","POST"])
 def similarity():
     movie = request.form['name']
     rc = rcmd(movie)
