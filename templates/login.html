@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+        <style>
+            label{
+                color: #f1f1f1;
+                font-size: 16px;
+                margin-right: 20px;
+            }
+
+            form{
+                height: 300px;
+                width:450px;
+            }
+            .input1{
+                height: 40px;
+            }
+        </style>
+
+
+   
+    </head>
+    <body  id="content">
+        <div style="display: flex;justify-content: center;align-items: center;height: 100vh;">
+
+<form action="{{url_for('home')}}" method="post">
+    
+  <h1>Login to Movie Adda</h1>
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text"  class="input1" placeholder="Enter Username" name="uname" required>
+     
+   <br><br>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" class="input1" placeholder="Enter Password" name="psw" required>
+      <br><br>
+      <div style="margin-left: 100px; display: flex; align-items: center;" >
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" style="margin-left:8px;margin-right: 8px; " checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+    </div>
+
+    <br><br>
+  
+    <div class="container" >
+      <button type="button" style="margin-left:8px;margin-right: 8px;" class="cancelbtn">Cancel</button>
+      <span class="psw" style="margin-left:8px;margin-right: 8px; color: #f1f1f1;">Forgot <a href="#" style="color: white;">password?</a></span>
+    </div>
+  </form>
+</div>
+    </body>
+</html>
+
+
+
+  
